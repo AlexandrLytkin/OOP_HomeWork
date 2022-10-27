@@ -108,11 +108,8 @@ public class Car extends Transport {
     public Insurance getInsurance() {
         return insurance;
     }
-
 //---
 //----
-
-
     @Override
     public String toString() {
         return "Car{" +
@@ -132,7 +129,6 @@ public class Car extends Transport {
                 ", key.keyLessAccess=" + key.isKeyLessAccess() +
                 '}';
     }
-
 //----
 //-----
     public static class Key {
@@ -174,4 +170,10 @@ public class Car extends Transport {
         }
     }
 //------
+//-------
+    @Override
+    public void refill() {
+        System.out.println("Заправлять бензином АИ-95");
+    }
+//-------
 }

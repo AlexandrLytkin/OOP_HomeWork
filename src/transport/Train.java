@@ -21,6 +21,11 @@ public class Train extends Transport {
     }
 
     @Override
+    public void refill() {
+        System.out.println("Заправлять ДТ");
+    }
+
+    @Override
     public String toString() {
         return "Train{" +
                 ", brand= " + getBrand() +
