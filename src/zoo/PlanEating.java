@@ -20,6 +20,10 @@ public class PlanEating extends Mamals {
     }
 
 
+    public String getName() {                   //для себя
+        return super.getName().toUpperCase();
+    }
+
     @Override
     public String toString() {
         return "травоядное" +
