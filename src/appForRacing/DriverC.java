@@ -4,7 +4,7 @@ import validator.ValidationUtils;
 
 public class DriverC <C extends Transport & Participating> {
     private String name;
-    private final String DRIVER_LICENSE = "C";
+    private final static String DRIVER_LICENSE = "C";
     private int experienceDrive;
 
 
