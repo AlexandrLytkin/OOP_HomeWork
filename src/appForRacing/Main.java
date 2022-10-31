@@ -14,23 +14,18 @@ public class Main {
         Bus bus2 = new Bus("LIAZ", "4292", 4.43);
         Bus bus3 = new Bus("GAZ", "53", 4.2);
         Bus bus4 = new Bus("KAVZ", "4238", 6.7);
-//        System.out.println(car1);
-//        System.out.println(car2);
-//        System.out.println(car3);
-//        System.out.println(car4);
-//        System.out.println(bus1);
-//        System.out.println(bus2);
-//        System.out.println(bus3);
-//        System.out.println(bus4);
-//        System.out.println(truck1);
-//        System.out.println(truck2);
-//        System.out.println(truck3);
-//        System.out.println(truck4);
+
         DriverB<Car> driverB1 = new DriverB<>("Иванов Иван Иванович", null, 35);
-        DriverC<Truck> driverB2 = new DriverC<>("Гарыныч", "B", 27);
-        DriverD<Bus> driverB3 = new DriverD<>(null, null, 29);
+        DriverC<Truck> driverB2 = new DriverC<>("Гарыныч", "C", 27);
+        DriverD<Bus> driverB3 = new DriverD<>(null);
         driverB1.carOfDriver(car1);
         driverB2.carOfDriver(truck1);
         driverB3.carOfDriver(bus1);
+
+        car1.pitStop("у меня неисправность");
+        car1.bestLap(3.58);
+        car1.maxSpeed(139);
+
     }
 }
+

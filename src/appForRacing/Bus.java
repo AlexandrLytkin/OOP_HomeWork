@@ -20,14 +20,17 @@ public class Bus extends Transport implements Participating {
         System.out.println("закончить движение");
     }
 
+
     @Override
     public void pitStop(String pitStop) {
+        System.out.println(pitStop);
     }
     @Override
-    public void bestLap(String bestLap) {
+    public void bestLap(double bestLap) {
+        System.out.println("лучший круг мин.сек. "+bestLap);
     }
     @Override
-    public void maxSpeed(String maxSpeed) {
+    public void maxSpeed(int maxSpeed) {
+        System.out.println("максимальная скорость км.ч "+ maxSpeed);
     }
-
 }

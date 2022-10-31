@@ -4,15 +4,17 @@ import validator.ValidationUtils;
 
 public class DriverC <C extends Transport & Participating> {
     private String name;
-    private final String DRIVER_LICENSE;
-    int experienceDrive;
+    private final String DRIVER_LICENSE = "C";
+    private int experienceDrive;
 
 
     public DriverC(String name, String DRIVER_LICENSE, int experienceDrive) {
         super();
-        this.name = name;
-        this.DRIVER_LICENSE = "C";
+        setName(name);
         setExperienceDrive(experienceDrive);
+    }
+    public DriverC(String name) {
+        setName(name);
     }
 
     public void carOfDriver(C vodila){
