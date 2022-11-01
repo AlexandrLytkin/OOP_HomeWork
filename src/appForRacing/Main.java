@@ -21,11 +21,15 @@ public class Main {
         driverB1.carOfDriver(car1);
         driverB2.carOfDriver(truck1);
         driverB3.carOfDriver(bus1);
-
+        System.out.println("-----------");
         car1.pitStop("у меня неисправность");
         car1.bestLap(3.58);
         car1.maxSpeed(139);
-
+        System.out.println("-----------");
+        car1.typeCar(Car.AllBodyType.COUPE);
+        car1.typeCar(Car.AllBodyType.valueOf("SUV")); //второй вариант
+        truck1.weightType(Truck.CarryingCapacity.N2);
+        bus1.capacity(Bus.Capacity.ESPECIAL_SMALL);
     }
 }
 

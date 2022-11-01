@@ -4,7 +4,40 @@ public class Bus extends Transport implements Participating {
 
     public Bus(String brand, String model, double engineVolume) {
         super(brand,model,engineVolume);
+    }
 
+    public enum Capacity {
+        ESPECIAL_SMALL("особо малая (до 10 мест)"),
+        SMALL("малая (до 25)"),
+        MID("средняя (40-50)"),
+        BIG("большая (60-80)"),
+        ESPECIAL_BIG("особо большая (100-120 мест)");
+
+        private String capacity;
+
+        Capacity(String capacity){
+            this.capacity = capacity;
+        }
+    }
+
+    public void capacity(Capacity capacity){
+        switch (capacity){
+            case ESPECIAL_SMALL:
+                System.out.println(Capacity.ESPECIAL_SMALL.capacity);
+                break;
+            case SMALL:
+                System.out.println(Capacity.SMALL.capacity);
+                break;
+            case MID:
+                System.out.println(Capacity.MID.capacity);
+                break;
+            case BIG:
+                System.out.println(Capacity.BIG.capacity);
+                break;
+            case ESPECIAL_BIG:
+                System.out.println(Capacity.ESPECIAL_BIG.capacity);
+                break;
+        }
     }
 
     @Override
