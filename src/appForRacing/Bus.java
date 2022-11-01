@@ -18,6 +18,13 @@ public class Bus extends Transport implements Participating {
         Capacity(String capacity){
             this.capacity = capacity;
         }
+
+        public String getCapacity() {
+            return capacity;
+        }
+        public void setCapacity(String capacity){
+            this.capacity = capacity;
+        }
     }
 
     public void capacity(Capacity capacity){
@@ -37,6 +44,8 @@ public class Bus extends Transport implements Participating {
             case ESPECIAL_BIG:
                 System.out.println(Capacity.ESPECIAL_BIG.capacity);
                 break;
+            default:
+                System.out.println("данных по авто недостаточно");
         }
     }
 

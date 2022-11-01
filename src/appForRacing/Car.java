@@ -21,12 +21,16 @@ public final class Car extends Transport implements Participating {
         MINIVAN("минивен");
 
         private String translation;
+
         AllBodyType(String translation) {
             this.translation = translation;
         }
 
         public String getTranslation() {
             return translation;
+        }
+        public void setTranslation(String translation) {
+            this.translation = translation;
         }
     }
 
@@ -59,6 +63,8 @@ public final class Car extends Transport implements Participating {
             case MINIVAN:
                 System.out.println(AllBodyType.MINIVAN.translation);
                 break;
+            default:
+                System.out.println("данных по авто недостаточно");
         }
     }
 

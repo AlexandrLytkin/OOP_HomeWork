@@ -21,15 +21,20 @@ public class Main {
         driverB1.carOfDriver(car1);
         driverB2.carOfDriver(truck1);
         driverB3.carOfDriver(bus1);
-        System.out.println("-----------");
+        System.out.println("-----далее коменты и тесты для себя-----");
         car1.pitStop("у меня неисправность");
         car1.bestLap(3.58);
         car1.maxSpeed(139);
         System.out.println("-----------");
-        car1.typeCar(Car.AllBodyType.COUPE);
-        car1.typeCar(Car.AllBodyType.valueOf("SUV")); //второй вариант
+        car1.typeCar(Car.AllBodyType.COUPE); // первый способ вывода в консоль
+        Car.AllBodyType.COUPE.setTranslation("no coupe");  // cетер меняет данные
+        car1.typeCar(Car.AllBodyType.COUPE); // COUPE сменился no coupe
+        System.out.println("-----------");
+        car1.typeCar(Car.AllBodyType.valueOf("SUV")); // второй способ вывода в консоль
         truck1.weightType(Truck.CarryingCapacity.N2);
         bus1.capacity(Bus.Capacity.ESPECIAL_SMALL);
+        //car1.typeCar(Car.AllBodyType.valueOf("no SEDAN"));  // рушит идею
+
     }
 }
 

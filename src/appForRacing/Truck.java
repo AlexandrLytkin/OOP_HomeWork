@@ -3,10 +3,11 @@ package appForRacing;
 public class Truck extends Transport implements Participating {
 
     public Truck(String brand, String model, double engineVolume) {
+
         super(brand,model,engineVolume);
     }
-
     public enum CarryingCapacity {
+
         N1("с полной массой до 3,5 тонн"),
         N2("с полной массой свыше 3,5 до 12 тонн"),
         N3("с полной массой свыше 12 тонн");
@@ -20,8 +21,11 @@ public class Truck extends Transport implements Participating {
         public String getCarryingCapacity() {
             return carryingCapacity;
         }
-    }
 
+        public void setCarryingCapacity(String carryingCapacity) {
+            this.carryingCapacity = carryingCapacity;
+        }
+    }
     public void weightType(CarryingCapacity carryingCapacity){
         switch (carryingCapacity) {
             case N1:
@@ -33,6 +37,8 @@ public class Truck extends Transport implements Participating {
             case N3:
                 System.out.println("с полной массой свыше 12 тонн");
                 break;
+            default:
+                System.out.println("данных по авто недостаточно");
         }
     }
 
