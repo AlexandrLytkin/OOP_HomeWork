@@ -6,6 +6,8 @@ public class Bus extends Transport implements Participating {
         super(brand,model,engineVolume);
     }
 
+
+
     public enum Capacity {
         ESPECIAL_SMALL("особо малая (до 10 мест)"),
         SMALL("малая (до 25)"),
@@ -47,6 +49,12 @@ public class Bus extends Transport implements Participating {
             default:
                 System.out.println("данных по авто недостаточно");
         }
+    }
+
+    @Override
+    public boolean neededDiagnostic() {
+        System.out.println("Автобус "+getBrand()+" "+getModel()+"  в диагностике не требуется");
+        return true;
     }
 
     @Override

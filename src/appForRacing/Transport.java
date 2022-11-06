@@ -14,6 +14,10 @@ public abstract class Transport {
         setEngineVolume(engineVolume);
     }
 
+    public boolean neededDiagnostic() {
+        return true;
+    }
+
 
     public abstract void typeAuto();
 

@@ -4,21 +4,23 @@ import validator.ValidationUtils;
 
 public class DriverB <B extends Transport & Participating> {
     private String name;
-    private  final static String DRIVER_LICENSE = "B";
+    private String driverLicense = "B";
     private int experienceDrive;
 
 
-    public DriverB(String name, String DRIVER_LICENSE, int experienceDrive) {
+    public DriverB(String name, String driverLicense, int experienceDrive) {
         super();
         setName(name);
         setExperienceDrive(experienceDrive);
+        setDriverLicense(driverLicense);
     }
+
     public DriverB() {
     }
 
     public void carOfDriver(B vodila){
         System.out.println("водитель = " + getName());
-        System.out.println("DRIVER_LICENSE категории = " + DRIVER_LICENSE);
+        System.out.println("driverLicense категории = " + driverLicense);
         System.out.println(
                 "управляет автомобилем= " + vodila.getBrand() +
                 ", модель= " + vodila.getModel() +
@@ -43,7 +45,7 @@ public class DriverB <B extends Transport & Participating> {
     public String toString() {
         return "Driver{" +
                 "name='" + getName() + '\'' +
-                ", driverLicense='" + getDRIVER_LICENSE() + '\'' +
+                ", driverLicense='" + getDriverLicense() + '\'' +
                 ", experienceDrive=" + getExperienceDrive() +
                 '}';
     }
@@ -54,8 +56,15 @@ public class DriverB <B extends Transport & Participating> {
     public void setName(String name) {
         this.name = ValidationUtils.validOrDefault(name,"incognito");
     }
-    public String getDRIVER_LICENSE() {
-        return DRIVER_LICENSE;
+    public String getDriverLicense() {
+        return driverLicense;
+    }
+
+    public void setDriverLicense(String driverLicense) {
+        if (driverLicense == null || driverLicense.isBlank()) {
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
+        }
+        this.driverLicense = driverLicense;
     }
     public int getExperienceDrive() {
         return experienceDrive;
@@ -63,4 +72,5 @@ public class DriverB <B extends Transport & Participating> {
     public void setExperienceDrive(int experienceDrive) {
         this.experienceDrive = Math.max(experienceDrive,1);
     }
+
 }

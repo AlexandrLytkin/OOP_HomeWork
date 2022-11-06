@@ -4,14 +4,15 @@ import validator.ValidationUtils;
 
 public class DriverD <D extends Transport & Participating> {
     private String name;
-    private final static String DRIVER_LICENSE = "D";
+    private String driverLicense = "D";
     private int experienceDrive;
 
 
-    public DriverD(String name, String DRIVER_LICENSE, int experienceDrive) {
+    public DriverD(String name, String driverLicense, int experienceDrive) {
         super();
         setName(name);
         setExperienceDrive(experienceDrive);
+        setDriverLicense(driverLicense);
     }
     public DriverD(String name) {
         setName(name);
@@ -19,7 +20,7 @@ public class DriverD <D extends Transport & Participating> {
 
     public void carOfDriver(D vodila){
         System.out.println("ФИО участника = " + getName());
-        System.out.println("DRIVER_LICENSE категории = " + DRIVER_LICENSE);
+        System.out.println("driverLicense категории = " + driverLicense);
         System.out.println(
                 "управляет автомобилем= " + vodila.getBrand() +
                         ", модель= " + vodila.getModel() +
@@ -44,7 +45,7 @@ public class DriverD <D extends Transport & Participating> {
     public String toString() {
         return "Driver{" +
                 "name='" + getName() + '\'' +
-                ", driverLicense='" + getDRIVER_LICENSE() + '\'' +
+                ", driverLicense='" + getDriverLicense() + '\'' +
                 ", experienceDrive=" + getExperienceDrive() +
                 '}';
     }
@@ -55,9 +56,17 @@ public class DriverD <D extends Transport & Participating> {
     public void setName(String name) {
         this.name = ValidationUtils.validOrDefault(name,"incognito");
     }
-    public String getDRIVER_LICENSE() {
-        return DRIVER_LICENSE;
+    public String getDriverLicense() {
+        return driverLicense;
     }
+
+    public void setDriverLicense(String driverLicense) {
+        if (driverLicense == null || driverLicense.isBlank()) {
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
+        }
+        this.driverLicense = driverLicense;
+    }
+
     public int getExperienceDrive() {
         return experienceDrive;
     }

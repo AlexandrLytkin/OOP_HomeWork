@@ -9,6 +9,7 @@ public final class Car extends Transport implements Participating {
 
     }
 
+
     public enum AllBodyType {
         SEDAN("седан"),
         HATCHBACK("хетчбек"),
@@ -66,6 +67,10 @@ public final class Car extends Transport implements Participating {
             default:
                 System.out.println("данных по авто недостаточно");
         }
+    }
+
+    public boolean neededDiagnostic() {
+        return  Math.random() >0.5;  //рандом с вероятностью 50 на 50 тру или фолс
     }
 
     @Override

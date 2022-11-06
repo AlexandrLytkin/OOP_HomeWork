@@ -6,6 +6,7 @@ public class Truck extends Transport implements Participating {
 
         super(brand,model,engineVolume);
     }
+
     public enum CarryingCapacity {
 
         N1("с полной массой до 3,5 тонн"),
@@ -26,6 +27,7 @@ public class Truck extends Transport implements Participating {
             this.carryingCapacity = carryingCapacity;
         }
     }
+
     public void weightType(CarryingCapacity carryingCapacity){
         switch (carryingCapacity) {
             case N1:
@@ -42,6 +44,10 @@ public class Truck extends Transport implements Participating {
         }
     }
 
+    @Override
+    public boolean neededDiagnostic() {
+        return Math.random() > 0.7;
+    }
 
     @Override
     public void typeAuto() {

@@ -15,12 +15,15 @@ public class Main {
         Bus bus3 = new Bus("GAZ", "53", 4.2);
         Bus bus4 = new Bus("KAVZ", "4238", 6.7);
 
-        DriverB<Car> driverB1 = new DriverB<>("Иванов Иван Иванович", null, 35);
+        DriverB<Car> driverB1 = new DriverB<>("Иванов Иван Иванович", "B", 35);
         DriverC<Truck> driverB2 = new DriverC<>("Гарыныч", "C", 27);
         DriverD<Bus> driverB3 = new DriverD<>(null);
         driverB1.carOfDriver(car1);
         driverB2.carOfDriver(truck1);
         driverB3.carOfDriver(bus1);
+        System.out.println("-----------");
+        checkNeededDiagnostic(car1,car2,car3,car4,truck1,truck2,truck3,truck4,bus1,bus2,bus3,bus4);
+
         System.out.println("-----далее коменты и тесты для себя-----");
         car1.pitStop("у меня неисправность");
         car1.bestLap(3.58);
@@ -34,6 +37,21 @@ public class Main {
         truck1.weightType(Truck.CarryingCapacity.N2);
         bus1.capacity(Bus.Capacity.ESPECIAL_SMALL);
         //car1.typeCar(Car.AllBodyType.valueOf("no SEDAN"));  // рушит идею
+        System.out.println("-----------");
+
+    }
+
+    public static void checkNeededDiagnostic(Transport... transport) {
+        for (Transport currentTransport : transport) {
+            try {
+                if (currentTransport.neededDiagnostic() != true) {
+                    throw new RuntimeException("диагностику не прошел "+ currentTransport.getBrand() + " " + currentTransport.getModel());
+                }
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
 
     }
 }
