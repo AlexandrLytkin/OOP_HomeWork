@@ -65,7 +65,7 @@ public class Truck extends Transport implements Participating {
 
     @Override
     public void pitStop(String pitStop) {
-        System.out.println(pitStop);
+        System.out.println("требуется питстоп "+pitStop);
     }
     @Override
     public void bestLap(double bestLap) {
