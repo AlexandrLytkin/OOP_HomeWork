@@ -5,7 +5,7 @@ public class Main {
 
         boolean registration = Data.valid("Kaschey-2000", "qwe123", "qwe123");
         if (registration) {
-            System.out.println("регистрация прошла упешно");
+            System.out.println("регистрация прошла уcпешно");
         } else {
             System.out.println("регистрация не прошла");
         }

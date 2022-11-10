@@ -30,7 +30,7 @@ public class Data {
     }
 
     private  static boolean correctDate (String value) {
-        Pattern pattern = Pattern.compile("([0-9A-Za-z-]{1,20})");
+        Pattern pattern = Pattern.compile("^[0-9A-Za-z-]{1,20}$");
         Matcher matcher = pattern.matcher(value);
         if (!matcher.matches()) {
             return false;

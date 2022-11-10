@@ -6,9 +6,7 @@ public final class Car extends Transport implements Participating {
 
     public Car(String brand, String model, double engineVolume) {
         super(brand,model,engineVolume);
-
     }
-
 
     public enum AllBodyType {
         SEDAN("седан"),
@@ -99,7 +97,4 @@ public final class Car extends Transport implements Participating {
     public void maxSpeed(int maxSpeed) {
         System.out.println("максимальная скорость км.ч "+ maxSpeed);
     }
-
-
-
 }

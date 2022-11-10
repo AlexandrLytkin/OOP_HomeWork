@@ -19,7 +19,7 @@ public class DriverB <B extends Transport & Participating> {
     }
 
     public void carOfDriver(B vodila){
-        System.out.println("водитель = " + getName());
+        System.out.println("ФИО участника = " + getName());
         System.out.println("driverLicense категории = " + driverLicense);
         System.out.println(
                 "управляет автомобилем= " + vodila.getBrand() +

@@ -9,42 +9,53 @@ public class Bus extends Transport implements Participating {
 
 
     public enum Capacity {
-        ESPECIAL_SMALL("особо малая (до 10 мест)"),
-        SMALL("малая (до 25)"),
-        MID("средняя (40-50)"),
-        BIG("большая (60-80)"),
-        ESPECIAL_BIG("особо большая (100-120 мест)");
+        ESPECIAL_SMALL(0, 10),
+        SMALL(0, 25),
+        MID(40,50),
+        BIG(60,80),
+        ESPECIAL_BIG(100,120);
 
-        private String capacity;
+        private int capacityFrom;
+        private int capacityOn;
 
-        Capacity(String capacity){
-            this.capacity = capacity;
+        Capacity(int capacityFrom, int capacityOn){
+            this.capacityFrom = capacityFrom;
+            this.capacityOn = capacityOn;
         }
 
-        public String getCapacity() {
-            return capacity;
+        public int getCapacityFrom() {
+            return capacityFrom;
         }
-        public void setCapacity(String capacity){
-            this.capacity = capacity;
+
+        public void setCapacityFrom(int capacityFrom) {
+            this.capacityFrom = capacityFrom;
+        }
+
+        public int getCapacityOn() {
+            return capacityOn;
+        }
+
+        public void setCapacityOn(int capacityOn) {
+            this.capacityOn = capacityOn;
         }
     }
 
     public void capacity(Capacity capacity){
         switch (capacity){
             case ESPECIAL_SMALL:
-                System.out.println(Capacity.ESPECIAL_SMALL.capacity);
+                System.out.println("особо маленькая от "+Capacity.ESPECIAL_SMALL.capacityFrom+" до "+Capacity.ESPECIAL_SMALL.capacityOn+" мест");
                 break;
             case SMALL:
-                System.out.println(Capacity.SMALL.capacity);
+                System.out.println("маленькая от "+Capacity.SMALL.capacityFrom+" до "+Capacity.SMALL.capacityOn+" мест");
                 break;
             case MID:
-                System.out.println(Capacity.MID.capacity);
+                System.out.println("средняя от "+Capacity.MID.capacityFrom+" до "+Capacity.MID.capacityOn+" мест");
                 break;
             case BIG:
-                System.out.println(Capacity.BIG.capacity);
+                System.out.println("большая от "+Capacity.BIG.capacityFrom+" до "+Capacity.BIG.capacityOn+" мест");
                 break;
             case ESPECIAL_BIG:
-                System.out.println(Capacity.ESPECIAL_BIG.capacity);
+                System.out.println("особо большая от 100 "+Capacity.ESPECIAL_BIG.capacityFrom+" до "+Capacity.ESPECIAL_BIG.capacityOn+" мест");
                 break;
             default:
                 System.out.println("данных по авто недостаточно");
