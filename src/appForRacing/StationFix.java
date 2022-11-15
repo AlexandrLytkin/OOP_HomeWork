@@ -23,7 +23,7 @@ public class StationFix<T extends Transport> {
             System.out.println("станция ТО: " + name + ", чиним: " + transport);
             fixTransport();
         } else {
-            System.out.println("список пусть все машины проверены");
+            System.out.println("список пуст все машины проверены");
         }
     }
 

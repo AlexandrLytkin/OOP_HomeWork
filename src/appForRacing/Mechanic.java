@@ -24,6 +24,15 @@ public class Mechanic<M extends Transport> {
         return Math.random() < 0.7;
     }
 
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "name='" + name + '\'' +
+                ", company='" + company + '\'' +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

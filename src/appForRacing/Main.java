@@ -1,13 +1,15 @@
 package appForRacing;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        List <Car> list1 = new ArrayList<>();
-        List <Truck> list2 = new ArrayList<>();
-        List <Bus> list3 = new ArrayList<>();
+        Set <Car> list1 = new HashSet<>();
+        Set <Truck> list2 = new HashSet<>();
+        Set <Bus> list3 = new HashSet<>();
 
         Car car1 = new Car("Lada", "Priora", 1.6);
         Car car2 = new Car("ZAZ", "965", 0.7);
@@ -27,19 +29,15 @@ public class Main {
         list2.add(truck2);
         list3.add(bus1);
 
-        Car car1FromCollection = list1.get(0);
-        Truck truck1FromCollection = list2.get(1);
-        Bus bus1FromCollection = list3.get(0);
-
-        System.out.println(car1FromCollection);
-        System.out.println(truck1FromCollection);
-        System.out.println(bus1FromCollection);
+        System.out.println(car1);
+        System.out.println(truck1);
+        System.out.println(bus1);
 
         System.out.println("-----------");
 
-        List <DriverB> driverBList = new ArrayList<>();
-        List <DriverC> driverCList = new ArrayList<>();
-        List <DriverD> driverDList = new ArrayList<>();
+        Set <DriverB> driverBList = new HashSet<>();
+        Set <DriverC> driverCList = new HashSet<>();
+        Set <DriverD> driverDList = new HashSet<>();
 
         DriverB<Car> driverB1 = new DriverB<>("Иванов Иван Иванович", "B", 35);
         DriverC<Truck> driverB2 = new DriverC<>("Гарыныч", "C", 27);
@@ -53,19 +51,19 @@ public class Main {
         driverCList.add(driverB2);
         driverDList.add(driverB3);
 
-        DriverB driverBFromCollection = driverBList.get(0);
-        DriverC driverCFromCollection = driverCList.get(0);
-        DriverD driverDFromCollection = driverDList.get(0);
-
-        System.out.println(driverBFromCollection);
-        System.out.println(driverCFromCollection);
-        System.out.println(driverDFromCollection);
+        System.out.println(driverBList);
+        System.out.println(driverCList);
+        System.out.println(driverDList);
 
         checkNeededDiagnostic(car1,car2,car3,car4,truck1,truck2,truck3,truck4,bus1,bus2,bus3,bus4);
-
+        Set<Mechanic> mechanicSet = new HashSet<>();
         Mechanic<Car> mechanic1 = new Mechanic<>("Михалыч", "Garage");
         Mechanic<Truck> mechanic2 = new Mechanic<>("Потапыч", "AngarCO");
         Mechanic<Bus> mechanic3 = new Mechanic<>("Андрей Альбертович", "FixPro");
+        mechanicSet.add(mechanic1);
+        mechanicSet.add(mechanic2);
+        mechanicSet.add(mechanic3);
+        System.out.println("mechanicSet = " + mechanicSet);
 
         mechanic1.maintenance(car1);
         tryFixedTransport(mechanic1);
@@ -76,17 +74,14 @@ public class Main {
 
         System.out.println("-----------");
 
-        List <Sponsor> sponsorList = new ArrayList<>();
+        Set<Sponsor> sponsorList = new HashSet<>();
         Sponsor <Car> sponsor1 = new Sponsor<>("F1",150_000);
         Sponsor <Truck> sponsor2 = new Sponsor<>("XXLargeCompany",500_000);
         sponsorList.add(sponsor1);
         sponsorList.add(sponsor2);
-
-        Sponsor sponsorFromCollection1 = sponsorList.get(0);
-        Sponsor sponsorFromCollection2 = sponsorList.get(1);
-
-        System.out.println(sponsorFromCollection1);
-        System.out.println(sponsorFromCollection2);
+        sponsorList.add(sponsor2);
+        System.out.println(sponsor1);
+        System.out.println(sponsor2);
 
         System.out.println("-----------");
 
