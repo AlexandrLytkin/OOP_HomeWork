@@ -16,6 +16,7 @@ public class Product {
     }
 
 
+
     @Override
     public String toString() {
         return "Product{" +
@@ -32,7 +33,7 @@ public class Product {
             return false;
         }
         Product product = (Product) o;
-        return Objects.equals(product.name, name);
+        return Objects.equals(product.getName(), getName());
     }
 
     @Override
