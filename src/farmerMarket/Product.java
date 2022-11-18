@@ -6,23 +6,21 @@ public class Product {
 
     private String name;
     private double cost;
-    private double weight;
+    private double qty;
 
-    public Product(String name, double cost, double weight) {
+    public Product(String name, double cost, double qty) {
         this.name = name;
         this.cost = cost;
-        this.weight = weight;
+        this.qty = qty;
 
     }
-
-
 
     @Override
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
                 ", cost=" + cost +
-                ", weight=" + weight +
+                ", weight=" + qty +
                 '}';
     }
 
@@ -38,10 +36,12 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getCost(), getWeight());
+        return Objects.hash(getName());
     }
 
-
+    public void setQty(double qty) {
+        this.qty = qty;
+    }
 
     public String getName() {
         return name;
@@ -51,8 +51,8 @@ public class Product {
         return cost;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getQty() {
+        return qty;
     }
 
 }

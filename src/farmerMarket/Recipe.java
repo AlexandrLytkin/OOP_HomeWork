@@ -2,24 +2,17 @@ package farmerMarket;
 
 import java.util.*;
 
-public class Recipe {
+public class Recipe < T extends Product> {
 
-//    private static Map<Product, Set<Recipe> >map = new HashMap<>();
     private final String nameRecipe;
     private double totalCost;
-    private Set<Product> productSet;
+    private List<Product> products;
 
 
-    public Recipe(String nameRecipe) {
+    public Recipe(String nameRecipe,List<Product>products) {
         this.nameRecipe = nameRecipe;
+        this.products = products;
 
-    }
-
-    public double costRecipe(Product product1, Product product2) {
-        double sumRecipe;
-            sumRecipe = (product1.getCost() * product1.getWeight()) + (product2.getCost() * product2.getWeight());
-            totalCost = sumRecipe;
-        return sumRecipe;
     }
 
     @Override
@@ -42,16 +35,25 @@ public class Recipe {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNameRecipe(), getTotalCost(), getProductSet());
+        return Objects.hash(getNameRecipe());
     }
+
+
     public String getNameRecipe() {
         return nameRecipe;
     }
+
     public double getTotalCost() {
+        for (int i = 0; i < products.size(); i++) {
+            totalCost+=products.get(i).getCost();
+        }
+
         return totalCost;
     }
 
-    public Set<Product> getProductSet() {
-        return productSet;
+    public List<Product> getProducts() {
+        return products;
     }
+
+    
 }
