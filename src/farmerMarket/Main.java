@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     static List<Recipe> recipeSet = new ArrayList<>();
-    static HashMap<Product,Double> map = new HashMap<>();
+    static Map<Product,Double> map = new HashMap<>();
 
     public static void main(String[] args) {
 
@@ -15,10 +15,10 @@ public class Main {
         Product butter = new Product("масло", 35.99, 1);
 
 
-        Recipe sandwich = new Recipe("бутерброд",List.of(bread,butter));
-        Recipe sandwich2 = new Recipe("бутерброд2",List.of(butter,bread));
-        Recipe grill = new Recipe("гриль",List.of(sosage,bread));
-        Recipe fry = new Recipe("жареха",List.of(potato,butter,sosage));
+        Recipe sandwich = new Recipe("бутерброд");
+        Recipe sandwich2 = new Recipe("бутерброд2");
+        Recipe grill = new Recipe("гриль");
+        Recipe fry = new Recipe("жареха");
 
 
         recipeSet.add(sandwich);
@@ -43,10 +43,8 @@ public class Main {
         }
         System.out.println("map = " + map);
 
-        System.out.println("fry.getProducts() = " + fry.getProducts());
-        System.out.println("sandwich.getTotalCost() = " + sandwich.getTotalCost());
-        System.out.println("sandwich2.getTotalCost() = " + sandwich2.getTotalCost());
-        System.out.println("grill.getTotalCost() = " + grill.getTotalCost());
+        fry.getProduct(potato,2);
+        fry.getProduct(butter,1);
         System.out.println("fry.getTotalCost() = " + fry.getTotalCost());
 
 //task 2.3
@@ -76,6 +74,8 @@ public class Main {
             return v1+v2;
         });
     }
+
+
 
     public static void addRecipe(Recipe recipe) {
         for (Recipe currentProduct: recipeSet) {

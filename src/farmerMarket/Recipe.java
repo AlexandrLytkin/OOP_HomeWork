@@ -5,21 +5,41 @@ import java.util.*;
 public class Recipe < T extends Product> {
 
     private final String nameRecipe;
-    private double totalCost;
-    private List<Product> products;
+    private Map<Product, Integer> products = new HashMap<>();
 
 
-    public Recipe(String nameRecipe,List<Product>products) {
+    public Recipe(String nameRecipe) {
         this.nameRecipe = nameRecipe;
-        this.products = products;
+    }
 
+    public void getProduct(Product product, int qty) {
+        if (qty <= 0) {
+            qty = 1;
+        }
+        if (this.products.containsKey(product)) {
+            this.products.put(product, this.products.get(product) + qty);
+        } else {
+            this.products.put(product, qty);
+        }
+    }
+
+    public double getTotalCost() {
+        double sum = 0;
+        for (Map.Entry<Product, Integer> product : this.products.entrySet()){
+            sum += product.getKey().getCost()* product.getValue();
+        }
+        return sum;
+    }
+
+    public String getNameRecipe() {
+        return nameRecipe;
     }
 
     @Override
     public String toString() {
         return "Recipe{" +
                 "nameRecipe='" + nameRecipe + '\'' +
-                ", totalCost=" + totalCost +
+                ", products=" + products +
                 '}';
     }
 
@@ -35,25 +55,6 @@ public class Recipe < T extends Product> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNameRecipe());
+        return Objects.hash(nameRecipe);
     }
-
-
-    public String getNameRecipe() {
-        return nameRecipe;
-    }
-
-    public double getTotalCost() {
-        for (int i = 0; i < products.size(); i++) {
-            totalCost+=products.get(i).getCost();
-        }
-
-        return totalCost;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    
 }

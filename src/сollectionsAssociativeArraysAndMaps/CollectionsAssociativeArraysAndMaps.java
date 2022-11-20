@@ -13,23 +13,21 @@ public class CollectionsAssociativeArraysAndMaps {
         map.put("обезьяна", 2);
         map.put("шимпанзе", 1);
         map.put("макака", 1);
-        map.put("гибон", 3);
         map.put("гибон", 2);
+        map.put("гибон", 3);
         addPut("человек",12);
-        addPut("жаба",3);
+        addPut("гибон",4);
         System.out.println("map.entrySet() = " + map.entrySet());
-        System.out.println("map.containsKey() = " + map.containsKey("чело123век"));
 
     }
 
-    public static void addPut( String key,  Integer value) {
-            if (map.containsValue(value) && map.containsKey(key)) {
-                throw new RuntimeException("этот String уже есть! "+ key);
-            } else {
-                map.put(key, value);
-            }
+    public static void addPut(String key, Integer value) {
+        map.merge(key,value,(v1,v2)->{
+            if (v1.equals(v2))
+                throw new RuntimeException("этот String уже есть! " + key);
+            return v2;
+        });
     }
-
 }
 
 
