@@ -17,16 +17,17 @@ public class CollectionsAssociativeArraysAndMaps {
         map.put("гибон", 3);
         addPut("человек",12);
         addPut("гибон",4);
+        System.out.println("map.get(\"человек\") = " + map.get("человек"));
         System.out.println("map.entrySet() = " + map.entrySet());
-
     }
 
-    public static void addPut(String key, Integer value) {
-        map.merge(key,value,(v1,v2)->{
-            if (v1.equals(v2))
-                throw new RuntimeException("этот String уже есть! " + key);
-            return v2;
-        });
+
+    public static void addPut( String key,  Integer value) {
+        if (map.containsKey(key) && map.get(key).equals(value)) {
+            throw new RuntimeException("этот String уже есть! "+ key);
+        } else {
+            map.put(key, value);
+        }
     }
 }
 
