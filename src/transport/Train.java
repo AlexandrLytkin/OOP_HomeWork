@@ -20,6 +20,15 @@ public class Train extends Transport {
         setMaxSpeed(150);
     }
 
+    public Train() {
+        super(null,null,0,null,null,0);
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Заправлять ДТ");
+    }
+
     @Override
     public String toString() {
         return "Train{" +
